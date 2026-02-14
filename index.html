@@ -1,22 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Forgiveness Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Apology</title>
     <style>
-        #noButton {
-            position: relative;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
         }
-
-        #noButton:hover {
-            left: 20px;
-            top: 20px;
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .no-button {
+            display: none; /* Initially hidden */
+        }
+        .funny-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Do you forgive me?</h1>
+    <h1>I'm Sorry, Habibti!</h1>
+    <p>Please forgive me.</p>
     <button id="yesButton">Yes</button>
-    <button id="noButton">No</button>
-    <p>I'm sorry Lola</p>
+    <button id="noButton" class="no-button">No</button>
+    <div class="funny-message" id="funnyMessage">hahaha you thought u really can say no sorry habibti its always a yes</div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const funnyMessage = document.getElementById('funnyMessage');
+
+        noButton.style.display = 'inline'; // Show the No button
+
+        noButton.addEventListener('click', function() {
+            funnyMessage.style.display = 'block'; // Show the funny message
+            setTimeout(function() {
+                document.getElementById('yesButton').click(); // Automatically click "Yes" after a short delay
+            }, 3000); // 3 seconds delay before clicking "Yes"
+        });
+    </script>
 </body>
 </html>
